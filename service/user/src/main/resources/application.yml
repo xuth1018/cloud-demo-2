@@ -1,5 +1,7 @@
 server:
   port: 8080
+  servlet:
+    context-path: /user
 
 spring:
   application:
@@ -11,3 +13,35 @@ eureka:
   client:
     service-url:
       defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+
+
+#针对指定的类设置以什么级别监控，输出日志
+logging:
+  level:
+    com.wins.cloud: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  client:
+    config:
+      defalut:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+### feign http请求压缩
+  compression:
+    request:
+      enabled: false
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: false
+      useGzipDecoder: false
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
