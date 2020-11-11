@@ -1,0 +1,22 @@
+server:
+  port: 8763
+
+spring:
+  profiles: cluster3
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: eureka-server-3
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://eureka-server-1:8761/eureka/,http://eureka-server-2:8762/eureka/
+    fetch-registry: false
+    register-with-eureka: true
+  server:
+    enable-self-preservation: false # 自我保护机制 生产环境开启true
+    eviction-interval-timer-in-ms: 15000
+    renewal-threshold-update-interval-ms: 10000
+    renewal-percent-threshold: 0.45
