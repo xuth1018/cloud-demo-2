@@ -1,0 +1,23 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: turbine-server
+
+eureka:
+  instance:
+    hostname: turbine-server
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+turbine:
+  instanceUrlSuffix: hystrix.stream
+  aggregator:
+    cluster-config: main
+  app-config: user,product
+  cluster-name-expression: metadata['cluster']
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost"

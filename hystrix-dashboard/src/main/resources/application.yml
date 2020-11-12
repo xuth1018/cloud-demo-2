@@ -1,0 +1,16 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: hystrix-dashboard
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost"
+
+eureka:
+  instance:
+    hostname: hystrix-dashboard
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
