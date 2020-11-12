@@ -31,12 +31,11 @@
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
         </dependency>
-        <!--熔断器resilience4j-->
         <dependency>
-            <groupId>io.github.resilience4j</groupId>
-            <artifactId>resilience4j-spring-cloud2</artifactId>
-            <version>${resilience4j-spring-cloud2.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
+
         <!--jol工具-->
         <dependency>
             <groupId>org.openjdk.jol</groupId>

@@ -1,7 +1,5 @@
 server:
   port: 8080
-  servlet:
-    context-path: /user
 
 spring:
   application:
@@ -10,6 +8,8 @@ eureka:
   instance:
     hostname: user
     prefer-ip-address: true
+    metadata-map:
+      cluster: main
   client:
     service-url:
       defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
@@ -45,3 +45,10 @@ feign:
     enabled: false
   okhttp:
     enabled: true
+  ### hystrix开关
+  hystrix:
+    enabled: true
+
+
+
+
