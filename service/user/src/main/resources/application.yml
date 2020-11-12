@@ -4,6 +4,13 @@ server:
 spring:
   application:
     name: user
+
+### 消息队列
+  rabbitmq:
+    host: localhost
+    username: admin
+    password: admin
+
 eureka:
   instance:
     hostname: user
@@ -48,7 +55,4 @@ feign:
   ### hystrix开关
   hystrix:
     enabled: true
-
-
-
 

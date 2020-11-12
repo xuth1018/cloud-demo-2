@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: product
+  ### 消息队列
+  rabbitmq:
+    host: localhost
+    username: admin
+    password: admin
+
 eureka:
   instance:
     hostname: product
