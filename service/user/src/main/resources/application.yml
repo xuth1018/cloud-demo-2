@@ -8,8 +8,15 @@ spring:
 ### 消息队列
   rabbitmq:
     host: localhost
+    port: 5672
     username: admin
     password: admin
+    virtual-host: /
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:9001
+
 
 eureka:
   instance:
@@ -55,4 +62,7 @@ feign:
   ### hystrix开关
   hystrix:
     enabled: true
-
+hystrix:
+  stream:
+    queue:
+      destination: springCloudHystrixStream

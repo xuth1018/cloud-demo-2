@@ -14,8 +14,7 @@ public class GateWayConfig implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         HttpHeaders headers = exchange.getRequest().getHeaders();
-        //网管处过滤请求
-
+        //网关处理请求
         return chain.filter(exchange);
     }
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //@RequestMapping(path = "/product")
 public interface DemoInterface {
 
-    @RequestMapping(value = "/product/demo/hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/demo/hello", method = RequestMethod.GET)
     String hello(@RequestParam("name") String name);
 
 }
