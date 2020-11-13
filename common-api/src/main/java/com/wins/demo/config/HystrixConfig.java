@@ -14,7 +14,7 @@ public class HystrixConfig {
         HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
         registrationBean.setLoadOnStartup(1);
-        registrationBean.addUrlMappings("/hystrix.stream");
+        registrationBean.addUrlMappings("/turbine.stream");
         registrationBean.setName("HystrixMetricsStreamServlet");
         return registrationBean;
     }

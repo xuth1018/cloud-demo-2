@@ -20,3 +20,8 @@ eureka:
     eviction-interval-timer-in-ms: 15000
     renewal-threshold-update-interval-ms: 10000
     renewal-percent-threshold: 0.45
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

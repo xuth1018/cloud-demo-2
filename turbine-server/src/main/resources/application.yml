@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: turbine-server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
 
 eureka:
   instance:
@@ -11,13 +17,17 @@ eureka:
   client:
     service-url:
       defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
-turbine:
-  instanceUrlSuffix: hystrix.stream
-  aggregator:
-    cluster-config: main
-  app-config: user,product
-  cluster-name-expression: metadata['cluster']
+
+#普通模式
+#    cluster-config: main
+#  app-config: user,product
+#  cluster-name-expression: metadata['cluster']
 
 hystrix:
   dashboard:
-    proxy-stream-allow-list: "localhost"
+    proxy-stream-allow-list: "127.0.0.1"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
