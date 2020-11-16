@@ -1,0 +1,6 @@
+boo: 251251
+
+spring:
+  cloud:
+    config:
+      override-none: true

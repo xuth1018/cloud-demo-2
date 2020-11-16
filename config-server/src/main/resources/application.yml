@@ -1,0 +1,21 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config-repo
+
+  profiles:
+    active: native
+
+eureka:
+  client:
+    service-url:
+      default: http://peer:8761/eureka/,http://peer:8761/eureka/
+  instance:
+    hostname: config-server
+    prefer-ip-address: true
