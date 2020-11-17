@@ -6,11 +6,11 @@ spring:
     name: gateway
   cloud:
     gateway:
-#      routes:
-#        - id: path_user #转发
-#          uri: lb://user #lb:从注册中心获取服务 user:转发的服务名称（这个服务名称必须和eureka中对应）
-#          predicates:
-#            - Path=/user/**
+      routes:
+        - id: path_user #转发
+          uri: lb://user #lb:从注册中心获取服务 user:转发的服务名称（这个服务名称必须和eureka中对应）
+          predicates:
+            - Path=/user/**
 #          filters:
 #            - AddRequestHeader=test,test #符合匹配规则后，添加请求头，传递到后端
 #            - RemoveRequestHeader=test,test #符合匹配规则后，删除请求头
