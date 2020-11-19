@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      #uri: http://localhost:9003
+      label: master
+      profile: dev
+      name: foo,product
+      override-none: true # 允许本地配置覆盖远程配置  但是必须配置在远程文件中 本地无效
+      discovery:
+        enabled: true
+        service-id: config-server

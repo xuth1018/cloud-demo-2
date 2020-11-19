@@ -1,0 +1,41 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: product2
+  ### 消息队列
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    virtual-host: /
+
+  cloud:
+    stream:
+      bindings:
+        myMessageOut:
+          destination: product-my-message
+        myMessageIn:
+          destination: product-my-message
+          group: group-product-my-message
+          consumer:
+            partitioned: true
+      instance-count: 2
+      instance-index: 1
+
+eureka:
+  instance:
+    hostname: product2
+    prefer-ip-address: true
+    metadata-map:
+      cluster: main
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
