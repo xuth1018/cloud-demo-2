@@ -18,6 +18,8 @@
     <modules>
         <module>gateway</module>
         <module>user</module>
+        <module>product</module>
+        <module>product2</module>
     </modules>
 
     <dependencies>

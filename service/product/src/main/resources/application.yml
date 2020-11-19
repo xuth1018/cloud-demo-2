@@ -7,8 +7,27 @@ spring:
   ### 消息队列
   rabbitmq:
     host: localhost
-    username: admin
-    password: admin
+    username: guest
+    password: guest
+    virtual-host: /
+
+  cloud:
+    stream:
+      bindings:
+        myMessageOut:
+          destination: product-my-message
+          producer:
+            partition-key-expression: headers["unique"] #消息分区唯一性标识
+            partition-count: 2 #消息分区的数量
+        myMessageIn:
+          destination: product-my-message #绑定的交换名称 一个交换机有一个队列绑定
+          group: group-product-my-message #同一个组存在资源竞争 只有一个队列可以获取消息；不同的组不存在竞争
+          #消息分组 解决一条消息被一个消费者消费  消息分区 解决重复发送消息
+          consumer:
+            partitioned: true
+      instance-count: 2 #分区总数
+      instance-index: 0 #索引
+
 
 eureka:
   instance:
