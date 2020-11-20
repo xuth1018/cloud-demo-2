@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScans;
 @EnableDiscoveryClient
 @EnableHystrix
 public class ProductApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(ProductApplication.class);
     }
